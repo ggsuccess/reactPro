@@ -1,12 +1,19 @@
 import React from 'react';
 import './Movie.css';
 
-const Movie = ({ title, poster }) => {
+const Movie = (props) => {
+  const { title, poster } = props;
+  const style = {
+    border: '1px solid #333',
+  };
   return (
     <>
-      <table>
+      <table style={style}>
         <tr>
-          <th></th>
+          <td>{title}</td>
+          <td>
+            <img src={poster} width={200} height={200} alt="영화포스터" />
+          </td>
         </tr>
       </table>
     </>

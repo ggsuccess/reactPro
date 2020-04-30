@@ -11,6 +11,8 @@ const Movie = (props) => {
       <table style={style}>
         <tr>
           <td>{title}</td>
+        </tr>
+        <tr>
           <td>
             <img src={poster} width={200} height={200} alt="영화포스터" />
           </td>

@@ -1,8 +1,8 @@
 import React from 'react';
 import './Movie.css';
 
-const Movie = (props) => {
-  const { title, poster } = props;
+const Movie = ({ title, poster }) => {
+  // const { title, poster } = props;
   const style = {
     border: '1px solid #333',
   };

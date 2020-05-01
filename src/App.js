@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Movie from './Movie';
+import Input from './Input';
 
 // const App = () => {
 //   const [value, setValue] = useState(0);
@@ -48,6 +49,7 @@ const App = () => {
   // });
   return (
     <>
+      <Input />
       {movies.map((movie) => (
         <Movie key={movie.id} title={movie.title} poster={movie.poster} />
       ))}

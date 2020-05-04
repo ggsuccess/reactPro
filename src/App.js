@@ -23,7 +23,11 @@ const App = () => {
       // res.data.movies안에 영화정보가 들어옴
       res
         .json()
-        .then((res) => setMovies(() => movies.concat(res.data.movies)))
+        .then((res) =>
+          movies.length === 0
+            ? setMovies(movies.concat(res.data.movies))
+            : movies
+        )
         .catch((err) => console.error(err));
     }
     fetchMovies();

@@ -42,6 +42,7 @@ const App = () => {
             key={movie.id}
             title={movie.title}
             image={movie.large_cover_image}
+            synopsis={movie.synopsis}
           />
         ))}
       </>

@@ -16,7 +16,7 @@ import Movie from './Movie';
 const App = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
-    async function fetchMovies() {
+    const fetchMovies = async () => {
       const res = await fetch(
         'https://yts.mx/api/v2/list_movies.json?sort_by=rating'
       );
@@ -29,20 +29,24 @@ const App = () => {
             : movies
         )
         .catch((err) => console.error(err));
-    }
+    };
     fetchMovies();
   });
-  return (
-    <>
-      {movies.map((movie) => (
-        <Movie
-          key={movie.id}
-          title={movie.title}
-          image={movie.background_image}
-        />
-      ))}
-    </>
-  );
+  if (movies.length === 0) {
+    return <>로딩 중.....</>;
+  } else {
+    return (
+      <>
+        {movies.map((movie) => (
+          <Movie
+            key={movie.id}
+            title={movie.title}
+            image={movie.large_cover_image}
+          />
+        ))}
+      </>
+    );
+  }
 };
 
 export default App;

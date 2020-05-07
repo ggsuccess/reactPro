@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Input = ({ value }) => {
-  const onChange = (e) => {
-    console.log(e.target.value);
-  };
+const Input = ({ handleChange }) => {
+  const [inputTitle, setTitle] = useState('');
+  const [inputPicture, setPicture] = useState('');
   return (
     <>
-      제목추가<input type="text" onChange={onChange}></input>
-      사진추가(사진주소)<input type="text" onChange={onChange}></input>
-      <button >추가!</button>
+      제목추가
+      <input
+        type="text"
+        onChange={(e) => setTitle((inputTitle = e.target.value))}
+      ></input>
+      사진추가(사진주소)
+      <input
+        type="text"
+        onChange={(e) => setPicture((inputPicture = e.target.value))}
+      ></input>
+      <button onClick={() => handleChange()}>추가!</button>
     </>
   );
 };

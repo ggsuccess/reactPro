@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Movie from './Movie';
-//import Input from './Input';
+import Input from './Input';
 
 // const App = () => {
 //   const [value, setValue] = useState(0);
@@ -32,11 +32,15 @@ const App = () => {
     };
     fetchMovies();
   });
+  handleChange = (e) => {
+    setMovies(movies.concat());
+  };
   if (movies.length === 0) {
     return <>로딩 중.....</>;
   } else {
     return (
       <>
+        <Input handleChange={handleChange} />
         {movies.map((movie) => (
           <Movie
             key={movie.id}
